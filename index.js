@@ -3,6 +3,11 @@ const { createCanvas, loadImage } = require('canvas');
 const axios = require('axios');
 const app = express();
 
+// Endpoint para a raiz
+app.get('/', (req, res) => {
+  res.send('Bem-vindo à API de Cartas! Use /figu?avatar=URL_DO_AVATAR&cor=HEX_DA_COR para gerar uma carta.');
+});
+
 // Endpoint para gerar a carta
 app.get('/figu', async (req, res) => {
   const avatarUrl = req.query.avatar;
